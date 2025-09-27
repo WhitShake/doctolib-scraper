@@ -1,0 +1,35 @@
+{
+  "keyword": "medecin-generaliste",
+  "location": {
+    "place": {
+      "id": 15297,
+      "placeId": "ChIJ6WS-4x1Yi0cRgCW55CqrCAM",
+      "name": "Ain",
+      "nameWithPronoun": "en Ain",
+      "slug": "ain",
+      "country": "fr",
+      "viewport": {
+        "northeast": {
+          "lat": 46.519953,
+          "lng": 6.1701981
+        },
+        "southwest": {
+          "lat": 45.611093,
+          "lng": 4.7280671
+        }
+      },
+      "type": "administrativeArea",
+      "zipcodes": [
+        "01"
+      ],
+      "gpsPoint": {
+        "lat": 46.2475706,
+        "lng": 5.1307681
+      },
+      "locality": "",
+      "streetName": null,
+      "streetNumber": null
+    }
+  },
+  "filters": {}
+}

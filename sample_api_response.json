@@ -1,0 +1,1295 @@
+{
+  "total": 10000,
+  "healthcareProviders": [
+    {
+      "cloudinaryPublicId": "ougzrs0lrvajicfoc8yn",
+      "exactMatch": false,
+      "id": "profile-65018;practice-35800;medecin-generaliste",
+      "languages": [
+        "gb",
+        "es",
+        "fr"
+      ],
+      "link": "/medecin-generaliste/creteil/elodie-croci?pid=practice-35800",
+      "location": {
+        "address": "34 Rue Jean Jaurès",
+        "city": "Créteil",
+        "country": "fr",
+        "lat": 48.7938837,
+        "lng": 2.45610839999995,
+        "zipcode": "94000",
+        "distanceInMeters": null
+      },
+      "minimumFee": null,
+      "name": "CROCI",
+      "firstName": "Elodie",
+      "title": "Dr",
+      "gender": "female",
+      "onlineBooking": {
+        "agendaIds": [
+          99563
+        ],
+        "telehealth": true,
+        "topSpecialities": [],
+        "bookableOrganizationSpecialities": []
+      },
+      "organizationStatus": null,
+      "type": "INDIVIDUAL_PRACTITIONER",
+      "administrativeArea": [],
+      "paymentMeans": [
+        "cash",
+        "check",
+        "credit_card"
+      ],
+      "references": {
+        "legacyId": "profile-65018;practice-35800;medecin-generaliste",
+        "id": 65018,
+        "type": "public_profile",
+        "practiceId": 35800
+      },
+      "regulationSector": "contracted_1",
+      "services": [
+        "profile",
+        "onlineBooking"
+      ],
+      "speciality": {
+        "name": "Médecin généraliste",
+        "slug": "medecin-generaliste"
+      },
+      "matchedVisitMotive": {
+        "visitMotiveId": 584089,
+        "name": "Consultation de médecine générale",
+        "agendaIds": [
+          99563
+        ],
+        "fee": null,
+        "insuranceSector": {
+          "type": null,
+          "split": false
+        },
+        "allowNewPatients": false
+      }
+    },
+    {
+      "cloudinaryPublicId": "nuhni9k0znwqmcpkeirx",
+      "exactMatch": false,
+      "id": "profile-65019;practice-36580;medecin-generaliste",
+      "languages": [
+        "fr"
+      ],
+      "link": "/medecin-generaliste/saint-laurent-de-chamousset/nicolas-tournier?pid=practice-36580",
+      "location": {
+        "address": "24 Avenue des Quatre Cantons",
+        "city": "Saint-Laurent-de-Chamousset",
+        "country": "fr",
+        "lat": 45.7392875,
+        "lng": 4.464811099999999,
+        "zipcode": "69930",
+        "distanceInMeters": null
+      },
+      "minimumFee": null,
+      "name": "TOURNIER",
+      "firstName": "Nicolas",
+      "title": "Dr",
+      "gender": "male",
+      "onlineBooking": {
+        "agendaIds": [
+          99564
+        ],
+        "telehealth": true,
+        "topSpecialities": [],
+        "bookableOrganizationSpecialities": []
+      },
+      "organizationStatus": null,
+      "type": "INDIVIDUAL_PRACTITIONER",
+      "administrativeArea": [],
+      "paymentMeans": [],
+      "references": {
+        "legacyId": "profile-65019;practice-36580;medecin-generaliste",
+        "id": 65019,
+        "type": "public_profile",
+        "practiceId": 36580
+      },
+      "regulationSector": null,
+      "services": [
+        "profile",
+        "onlineBooking"
+      ],
+      "speciality": {
+        "name": "Médecin généraliste",
+        "slug": "medecin-generaliste"
+      },
+      "matchedVisitMotive": {
+        "visitMotiveId": 589694,
+        "name": "Consultation de suivi de médecine générale",
+        "agendaIds": [
+          99564
+        ],
+        "fee": null,
+        "insuranceSector": {
+          "type": null,
+          "split": false
+        },
+        "allowNewPatients": false
+      }
+    },
+    {
+      "cloudinaryPublicId": "default_doctor_avatar_m",
+      "exactMatch": false,
+      "id": "profile-65021;practice-84299;medecin-generaliste",
+      "languages": [
+        "fr"
+      ],
+      "link": "/medecin-generaliste/grezieu-la-varenne/arnaud-morellon?pid=practice-84299",
+      "location": {
+        "address": "1 Route Neuve du Col-de-la-Luere",
+        "city": "Grézieu-la-Varenne",
+        "country": "fr",
+        "lat": 45.7497348,
+        "lng": 4.69245879999994,
+        "zipcode": "69290",
+        "distanceInMeters": null
+      },
+      "minimumFee": null,
+      "name": "MORELLON",
+      "firstName": "Arnaud",
+      "title": "Dr",
+      "gender": "male",
+      "onlineBooking": {
+        "agendaIds": [
+          211829
+        ],
+        "telehealth": true,
+        "topSpecialities": [],
+        "bookableOrganizationSpecialities": []
+      },
+      "organizationStatus": null,
+      "type": "INDIVIDUAL_PRACTITIONER",
+      "administrativeArea": [],
+      "paymentMeans": [
+        "cash",
+        "check",
+        "credit_card"
+      ],
+      "references": {
+        "legacyId": "profile-65021;practice-84299;medecin-generaliste",
+        "id": 65021,
+        "type": "public_profile",
+        "practiceId": 84299
+      },
+      "regulationSector": "contracted_1",
+      "services": [
+        "profile",
+        "onlineBooking"
+      ],
+      "speciality": {
+        "name": "Médecin généraliste",
+        "slug": "medecin-generaliste"
+      },
+      "matchedVisitMotive": {
+        "visitMotiveId": 1291893,
+        "name": "Consultation de médecine générale",
+        "agendaIds": [
+          211829
+        ],
+        "fee": null,
+        "insuranceSector": {
+          "type": null,
+          "split": false
+        },
+        "allowNewPatients": true
+      }
+    },
+    {
+      "cloudinaryPublicId": "xpodhomwc4ccfykredwo",
+      "exactMatch": false,
+      "id": "profile-65025;practice-104712;medecin-generaliste",
+      "languages": [],
+      "link": "/medecin-generaliste/auray/eric-henry?pid=practice-104712",
+      "location": {
+        "address": "100c Avenue du Général de Gaulle",
+        "city": "Auray",
+        "country": "fr",
+        "lat": 47.6758137,
+        "lng": -2.9942593,
+        "zipcode": "56400",
+        "distanceInMeters": null
+      },
+      "minimumFee": null,
+      "name": "HENRY",
+      "firstName": "Eric",
+      "title": "Dr",
+      "gender": "male",
+      "onlineBooking": {
+        "agendaIds": [
+          99574
+        ],
+        "telehealth": false,
+        "topSpecialities": [],
+        "bookableOrganizationSpecialities": []
+      },
+      "organizationStatus": null,
+      "type": "INDIVIDUAL_PRACTITIONER",
+      "administrativeArea": [],
+      "paymentMeans": [
+        "cash",
+        "check",
+        "credit_card"
+      ],
+      "references": {
+        "legacyId": "profile-65025;practice-104712;medecin-generaliste",
+        "id": 65025,
+        "type": "public_profile",
+        "practiceId": 104712
+      },
+      "regulationSector": "contracted_1",
+      "services": [
+        "profile",
+        "onlineBooking"
+      ],
+      "speciality": {
+        "name": "Médecin généraliste",
+        "slug": "medecin-generaliste"
+      },
+      "matchedVisitMotive": {
+        "visitMotiveId": 589742,
+        "name": "Consultation de médecine générale",
+        "agendaIds": [
+          99574
+        ],
+        "fee": null,
+        "insuranceSector": {
+          "type": null,
+          "split": false
+        },
+        "allowNewPatients": true
+      }
+    },
+    {
+      "cloudinaryPublicId": "default_doctor_avatar_m",
+      "exactMatch": false,
+      "id": "profile-65168;practice-35443;medecin-generaliste",
+      "languages": [],
+      "link": "/medecin-generaliste/haubourdin/alexis-corbin?pid=practice-35443",
+      "location": {
+        "address": "2a Route de Béthune",
+        "city": "Haubourdin",
+        "country": "fr",
+        "lat": 50.611436,
+        "lng": 2.9713801999999987,
+        "zipcode": "59320",
+        "distanceInMeters": null
+      },
+      "minimumFee": null,
+      "name": "CORBIN",
+      "firstName": "Alexis",
+      "title": "Dr",
+      "gender": "male",
+      "onlineBooking": {
+        "agendaIds": [
+          96552
+        ],
+        "telehealth": true,
+        "topSpecialities": [],
+        "bookableOrganizationSpecialities": []
+      },
+      "organizationStatus": null,
+      "type": "INDIVIDUAL_PRACTITIONER",
+      "administrativeArea": [],
+      "paymentMeans": [
+        "cash",
+        "check",
+        "credit_card"
+      ],
+      "references": {
+        "legacyId": "profile-65168;practice-35443;medecin-generaliste",
+        "id": 65168,
+        "type": "public_profile",
+        "practiceId": 35443
+      },
+      "regulationSector": "contracted_1",
+      "services": [
+        "profile",
+        "onlineBooking"
+      ],
+      "speciality": {
+        "name": "Médecin généraliste",
+        "slug": "medecin-generaliste"
+      },
+      "matchedVisitMotive": {
+        "visitMotiveId": 573611,
+        "name": "Consultation de médecine générale",
+        "agendaIds": [
+          96552
+        ],
+        "fee": null,
+        "insuranceSector": {
+          "type": null,
+          "split": false
+        },
+        "allowNewPatients": true
+      }
+    },
+    {
+      "cloudinaryPublicId": "default_doctor_avatar_f",
+      "exactMatch": false,
+      "id": "profile-65171;practice-36705;medecin-generaliste",
+      "languages": [],
+      "link": "/medecin-generaliste/thionville/sophie-herfeld-godard?pid=practice-36705",
+      "location": {
+        "address": "4 Boulevard Charlemagne",
+        "city": "Thionville",
+        "country": "fr",
+        "lat": 49.36271199999999,
+        "lng": 6.172911999999997,
+        "zipcode": "57100",
+        "distanceInMeters": null
+      },
+      "minimumFee": null,
+      "name": "Herfeld-Godard",
+      "firstName": "Sophie",
+      "title": "Dr",
+      "gender": "female",
+      "onlineBooking": {
+        "agendaIds": [
+          99773
+        ],
+        "telehealth": true,
+        "topSpecialities": [],
+        "bookableOrganizationSpecialities": []
+      },
+      "organizationStatus": null,
+      "type": "INDIVIDUAL_PRACTITIONER",
+      "administrativeArea": [],
+      "paymentMeans": [
+        "cash",
+        "check",
+        "credit_card"
+      ],
+      "references": {
+        "legacyId": "profile-65171;practice-36705;medecin-generaliste",
+        "id": 65171,
+        "type": "public_profile",
+        "practiceId": 36705
+      },
+      "regulationSector": "contracted_1",
+      "services": [
+        "profile",
+        "onlineBooking"
+      ],
+      "speciality": {
+        "name": "Médecin généraliste",
+        "slug": "medecin-generaliste"
+      },
+      "matchedVisitMotive": {
+        "visitMotiveId": 591427,
+        "name": "Consultation de médecine générale",
+        "agendaIds": [
+          99773
+        ],
+        "fee": null,
+        "insuranceSector": {
+          "type": null,
+          "split": false
+        },
+        "allowNewPatients": false
+      }
+    },
+    {
+      "cloudinaryPublicId": "w1ynxjrkt5ptolvhlwwq",
+      "exactMatch": false,
+      "id": "profile-65184;practice-36716;medecin-generaliste",
+      "languages": [
+        "gb",
+        "es"
+      ],
+      "link": "/medecin-generaliste/gardanne/richard-ohayon?pid=practice-36716",
+      "location": {
+        "address": "31 Place Roger Bossa",
+        "city": "Gardanne",
+        "country": "fr",
+        "lat": 43.433486,
+        "lng": 5.466649,
+        "zipcode": "13120",
+        "distanceInMeters": null
+      },
+      "minimumFee": null,
+      "name": "OHAYON",
+      "firstName": "Richard",
+      "title": "Dr",
+      "gender": "male",
+      "onlineBooking": {
+        "agendaIds": [
+          99788
+        ],
+        "telehealth": true,
+        "topSpecialities": [],
+        "bookableOrganizationSpecialities": []
+      },
+      "organizationStatus": null,
+      "type": "INDIVIDUAL_PRACTITIONER",
+      "administrativeArea": [],
+      "paymentMeans": [
+        "cash",
+        "check",
+        "credit_card"
+      ],
+      "references": {
+        "legacyId": "profile-65184;practice-36716;medecin-generaliste",
+        "id": 65184,
+        "type": "public_profile",
+        "practiceId": 36716
+      },
+      "regulationSector": "contracted_2",
+      "services": [
+        "profile",
+        "onlineBooking"
+      ],
+      "speciality": {
+        "name": "Médecin généraliste",
+        "slug": "medecin-generaliste"
+      },
+      "matchedVisitMotive": {
+        "visitMotiveId": 591586,
+        "name": "Consultation de médecine générale",
+        "agendaIds": [
+          99788
+        ],
+        "fee": null,
+        "insuranceSector": {
+          "type": null,
+          "split": false
+        },
+        "allowNewPatients": true
+      }
+    },
+    {
+      "cloudinaryPublicId": "smt86ozm1bmfm2ohzlxb",
+      "exactMatch": false,
+      "id": "profile-65191;practice-36728;medecin-generaliste",
+      "languages": [],
+      "link": "/medecin-generaliste/noisy-le-grand/amar-chouam?pid=practice-36728",
+      "location": {
+        "address": "206 Rue Pierre Brossolette",
+        "city": "Noisy-le-Grand",
+        "country": "fr",
+        "lat": 48.8486296,
+        "lng": 2.5515287,
+        "zipcode": "93160",
+        "distanceInMeters": null
+      },
+      "minimumFee": null,
+      "name": "CHOUAM",
+      "firstName": "Amar",
+      "title": "Dr",
+      "gender": "male",
+      "onlineBooking": {
+        "agendaIds": [
+          99802
+        ],
+        "telehealth": true,
+        "topSpecialities": [],
+        "bookableOrganizationSpecialities": []
+      },
+      "organizationStatus": null,
+      "type": "INDIVIDUAL_PRACTITIONER",
+      "administrativeArea": [],
+      "paymentMeans": [
+        "cash",
+        "check",
+        "credit_card"
+      ],
+      "references": {
+        "legacyId": "profile-65191;practice-36728;medecin-generaliste",
+        "id": 65191,
+        "type": "public_profile",
+        "practiceId": 36728
+      },
+      "regulationSector": "contracted_1",
+      "services": [
+        "profile",
+        "onlineBooking"
+      ],
+      "speciality": {
+        "name": "Médecin généraliste",
+        "slug": "medecin-generaliste"
+      },
+      "matchedVisitMotive": {
+        "visitMotiveId": 591686,
+        "name": "Consultation de médecine générale",
+        "agendaIds": [
+          99802
+        ],
+        "fee": null,
+        "insuranceSector": {
+          "type": null,
+          "split": false
+        },
+        "allowNewPatients": true
+      }
+    },
+    {
+      "cloudinaryPublicId": "ce1lkjildgfxu7gsanlb",
+      "exactMatch": false,
+      "id": "profile-65210;practice-652656;medecin-generaliste",
+      "languages": [
+        "fr"
+      ],
+      "link": "/medecin-generaliste/saint-augustin/veronique-chastel-gignac?pid=practice-652656",
+      "location": {
+        "address": "1 Rue de l'Hospice",
+        "city": "Rozay-en-Brie",
+        "country": "fr",
+        "lat": 48.6839105,
+        "lng": 2.955205,
+        "zipcode": "77540",
+        "distanceInMeters": null
+      },
+      "minimumFee": null,
+      "name": "CHASTEL-GIGNAC",
+      "firstName": "Véronique",
+      "title": "Dr",
+      "gender": "female",
+      "onlineBooking": {
+        "agendaIds": [
+          99822
+        ],
+        "telehealth": false,
+        "topSpecialities": [],
+        "bookableOrganizationSpecialities": []
+      },
+      "organizationStatus": null,
+      "type": "INDIVIDUAL_PRACTITIONER",
+      "administrativeArea": [],
+      "paymentMeans": [],
+      "references": {
+        "legacyId": "profile-65210;practice-652656;medecin-generaliste",
+        "id": 65210,
+        "type": "public_profile",
+        "practiceId": 652656
+      },
+      "regulationSector": "contracted_1",
+      "services": [
+        "profile"
+      ],
+      "speciality": {
+        "name": "Médecin généraliste",
+        "slug": "medecin-generaliste"
+      },
+      "matchedVisitMotive": null
+    },
+    {
+      "cloudinaryPublicId": "hbpfwnrwnjzoaqr1zale",
+      "exactMatch": false,
+      "id": "profile-65211;practice-36745;medecin-generaliste",
+      "languages": [
+        "fr"
+      ],
+      "link": "/medecin-generaliste/saint-augustin/serge-coulon?pid=practice-36745",
+      "location": {
+        "address": "2 Place de la Mairie",
+        "city": "Saint-Augustin",
+        "country": "fr",
+        "lat": 48.7864733,
+        "lng": 3.02904430000001,
+        "zipcode": "77515",
+        "distanceInMeters": null
+      },
+      "minimumFee": null,
+      "name": "COULON",
+      "firstName": "Serge",
+      "title": "Dr",
+      "gender": "male",
+      "onlineBooking": {
+        "agendaIds": [
+          99823
+        ],
+        "telehealth": true,
+        "topSpecialities": [],
+        "bookableOrganizationSpecialities": []
+      },
+      "organizationStatus": null,
+      "type": "INDIVIDUAL_PRACTITIONER",
+      "administrativeArea": [],
+      "paymentMeans": [
+        "cash",
+        "check",
+        "credit_card"
+      ],
+      "references": {
+        "legacyId": "profile-65211;practice-36745;medecin-generaliste",
+        "id": 65211,
+        "type": "public_profile",
+        "practiceId": 36745
+      },
+      "regulationSector": "contracted_1",
+      "services": [
+        "profile",
+        "onlineBooking"
+      ],
+      "speciality": {
+        "name": "Médecin généraliste",
+        "slug": "medecin-generaliste"
+      },
+      "matchedVisitMotive": {
+        "visitMotiveId": 596974,
+        "name": "Consultation de médecine générale",
+        "agendaIds": [
+          99823
+        ],
+        "fee": null,
+        "insuranceSector": {
+          "type": null,
+          "split": false
+        },
+        "allowNewPatients": false
+      }
+    },
+    {
+      "cloudinaryPublicId": "iijaqbjduxxan8q7ku4r",
+      "exactMatch": false,
+      "id": "profile-65239;practice-149155;medecin-generaliste",
+      "languages": [
+        "fr"
+      ],
+      "link": "/medecin-generaliste/merignac/estelle-moron?pid=practice-149155",
+      "location": {
+        "address": "80 Avenue du Truc",
+        "city": "Mérignac",
+        "country": "fr",
+        "lat": 44.84903,
+        "lng": -0.6552339,
+        "zipcode": "33700",
+        "distanceInMeters": null
+      },
+      "minimumFee": null,
+      "name": "MORON",
+      "firstName": "Estelle",
+      "title": "Dr",
+      "gender": "female",
+      "onlineBooking": {
+        "agendaIds": [
+          99867
+        ],
+        "telehealth": true,
+        "topSpecialities": [],
+        "bookableOrganizationSpecialities": []
+      },
+      "organizationStatus": null,
+      "type": "INDIVIDUAL_PRACTITIONER",
+      "administrativeArea": [],
+      "paymentMeans": [
+        "cash",
+        "check",
+        "credit_card"
+      ],
+      "references": {
+        "legacyId": "profile-65239;practice-149155;medecin-generaliste",
+        "id": 65239,
+        "type": "public_profile",
+        "practiceId": 149155
+      },
+      "regulationSector": "contracted_1",
+      "services": [
+        "profile",
+        "onlineBooking"
+      ],
+      "speciality": {
+        "name": "Médecin généraliste",
+        "slug": "medecin-generaliste"
+      },
+      "matchedVisitMotive": {
+        "visitMotiveId": 7609505,
+        "name": "Première consultation de médecine générale",
+        "agendaIds": [
+          99867
+        ],
+        "fee": null,
+        "insuranceSector": {
+          "type": null,
+          "split": false
+        },
+        "allowNewPatients": true
+      }
+    },
+    {
+      "cloudinaryPublicId": "zhpe8ghysxcr3tjqes33",
+      "exactMatch": false,
+      "id": "profile-65240;practice-409061;medecin-generaliste",
+      "languages": [
+        "fr"
+      ],
+      "link": "/medecin-generaliste/merignac/zeid-issany?pid=practice-409061",
+      "location": {
+        "address": "257 Avenue de la Marne",
+        "city": "Mérignac",
+        "country": "fr",
+        "lat": 44.8329084,
+        "lng": -0.646112,
+        "zipcode": "33700",
+        "distanceInMeters": null
+      },
+      "minimumFee": null,
+      "name": "ISSANY",
+      "firstName": "Zeid",
+      "title": "Dr",
+      "gender": "male",
+      "onlineBooking": {
+        "agendaIds": [
+          99868
+        ],
+        "telehealth": false,
+        "topSpecialities": [],
+        "bookableOrganizationSpecialities": []
+      },
+      "organizationStatus": null,
+      "type": "INDIVIDUAL_PRACTITIONER",
+      "administrativeArea": [],
+      "paymentMeans": [],
+      "references": {
+        "legacyId": "profile-65240;practice-409061;medecin-generaliste",
+        "id": 65240,
+        "type": "public_profile",
+        "practiceId": 409061
+      },
+      "regulationSector": "contracted_1",
+      "services": [
+        "profile",
+        "onlineBooking"
+      ],
+      "speciality": {
+        "name": "Médecin généraliste",
+        "slug": "medecin-generaliste"
+      },
+      "matchedVisitMotive": {
+        "visitMotiveId": 605617,
+        "name": "Consultation pour permis de conduire",
+        "agendaIds": [
+          99868
+        ],
+        "fee": null,
+        "insuranceSector": {
+          "type": null,
+          "split": false
+        },
+        "allowNewPatients": true
+      }
+    },
+    {
+      "cloudinaryPublicId": "po4l6sv0jrqyzddcvmje",
+      "exactMatch": false,
+      "id": "profile-65263;practice-36793;medecin-generaliste",
+      "languages": [
+        "gb",
+        "fr"
+      ],
+      "link": "/medecin-generaliste/rosny-sous-bois/claude-thebault?pid=practice-36793",
+      "location": {
+        "address": "17bis Rue du Général Gallieni",
+        "city": "Rosny-sous-Bois",
+        "country": "fr",
+        "lat": 48.8729608,
+        "lng": 2.484389999999962,
+        "zipcode": "93110",
+        "distanceInMeters": null
+      },
+      "minimumFee": null,
+      "name": "THEBAULT",
+      "firstName": "Claude",
+      "title": "Dr",
+      "gender": "female",
+      "onlineBooking": {
+        "agendaIds": [
+          99906
+        ],
+        "telehealth": false,
+        "topSpecialities": [],
+        "bookableOrganizationSpecialities": []
+      },
+      "organizationStatus": null,
+      "type": "INDIVIDUAL_PRACTITIONER",
+      "administrativeArea": [],
+      "paymentMeans": [
+        "cash",
+        "check",
+        "credit_card"
+      ],
+      "references": {
+        "legacyId": "profile-65263;practice-36793;medecin-generaliste",
+        "id": 65263,
+        "type": "public_profile",
+        "practiceId": 36793
+      },
+      "regulationSector": "contracted_1",
+      "services": [
+        "profile",
+        "onlineBooking"
+      ],
+      "speciality": {
+        "name": "Médecin généraliste",
+        "slug": "medecin-generaliste"
+      },
+      "matchedVisitMotive": {
+        "visitMotiveId": 592324,
+        "name": "Consultation de médecine générale",
+        "agendaIds": [
+          99906
+        ],
+        "fee": null,
+        "insuranceSector": {
+          "type": null,
+          "split": false
+        },
+        "allowNewPatients": true
+      }
+    },
+    {
+      "cloudinaryPublicId": "brfjagcrmyqampm05zzv",
+      "exactMatch": false,
+      "id": "profile-65299;practice-15402;medecin-generaliste",
+      "languages": [
+        "fr"
+      ],
+      "link": "/medecin-generaliste/joue-les-tours/pauline-jousset-joue-les-tours?pid=practice-15402",
+      "location": {
+        "address": "6 Bis Avenue Victor Hugo",
+        "city": "Joué-lès-Tours",
+        "country": "fr",
+        "lat": 47.3510386,
+        "lng": 0.664916800000015,
+        "zipcode": "37300",
+        "distanceInMeters": null
+      },
+      "minimumFee": null,
+      "name": "JOUSSET",
+      "firstName": "Pauline",
+      "title": "Dr",
+      "gender": "female",
+      "onlineBooking": {
+        "agendaIds": [
+          99969
+        ],
+        "telehealth": true,
+        "topSpecialities": [],
+        "bookableOrganizationSpecialities": []
+      },
+      "organizationStatus": null,
+      "type": "INDIVIDUAL_PRACTITIONER",
+      "administrativeArea": [],
+      "paymentMeans": [
+        "cash",
+        "check",
+        "credit_card"
+      ],
+      "references": {
+        "legacyId": "profile-65299;practice-15402;medecin-generaliste",
+        "id": 65299,
+        "type": "public_profile",
+        "practiceId": 15402
+      },
+      "regulationSector": "contracted_1",
+      "services": [
+        "profile",
+        "onlineBooking"
+      ],
+      "speciality": {
+        "name": "Médecin généraliste",
+        "slug": "medecin-generaliste"
+      },
+      "matchedVisitMotive": {
+        "visitMotiveId": 415056,
+        "name": "Consultation de suivi de médecine générale",
+        "agendaIds": [
+          99969
+        ],
+        "fee": null,
+        "insuranceSector": {
+          "type": null,
+          "split": false
+        },
+        "allowNewPatients": false
+      }
+    },
+    {
+      "cloudinaryPublicId": "mk9azdcpwizhtiauyaej",
+      "exactMatch": false,
+      "id": "profile-65301;practice-36823;medecin-generaliste",
+      "languages": [
+        "de",
+        "gb",
+        "ar",
+        "ma",
+        "il",
+        "dz"
+      ],
+      "link": "/medecin-generaliste/courbevoie/frederic-reyl?pid=practice-36823",
+      "location": {
+        "address": "7 Rue Baudin",
+        "city": "Courbevoie",
+        "country": "fr",
+        "lat": 48.8958036,
+        "lng": 2.250427800000011,
+        "zipcode": "92400",
+        "distanceInMeters": null
+      },
+      "minimumFee": null,
+      "name": "Reyl",
+      "firstName": "Frédéric",
+      "title": "Dr",
+      "gender": "male",
+      "onlineBooking": {
+        "agendaIds": [
+          99971
+        ],
+        "telehealth": false,
+        "topSpecialities": [],
+        "bookableOrganizationSpecialities": []
+      },
+      "organizationStatus": null,
+      "type": "INDIVIDUAL_PRACTITIONER",
+      "administrativeArea": [],
+      "paymentMeans": [
+        "cash",
+        "check",
+        "credit_card"
+      ],
+      "references": {
+        "legacyId": "profile-65301;practice-36823;medecin-generaliste",
+        "id": 65301,
+        "type": "public_profile",
+        "practiceId": 36823
+      },
+      "regulationSector": "contracted_2",
+      "services": [
+        "profile",
+        "onlineBooking"
+      ],
+      "speciality": {
+        "name": "Médecin généraliste",
+        "slug": "medecin-generaliste"
+      },
+      "matchedVisitMotive": {
+        "visitMotiveId": 592623,
+        "name": "Consultation de médecine générale",
+        "agendaIds": [
+          99971
+        ],
+        "fee": null,
+        "insuranceSector": {
+          "type": null,
+          "split": false
+        },
+        "allowNewPatients": true
+      }
+    },
+    {
+      "cloudinaryPublicId": "qhq7pkjhequfq1klq42d",
+      "exactMatch": false,
+      "id": "profile-65320;practice-36842;medecin-generaliste",
+      "languages": [],
+      "link": "/medecin-generaliste/fontaine-la-mallet/bruno-arrestier?pid=practice-36842",
+      "location": {
+        "address": "3 Place Saint-Valéry",
+        "city": "Fontaine-la-Mallet",
+        "country": "fr",
+        "lat": 49.53608610000001,
+        "lng": 0.1456432999999606,
+        "zipcode": "76290",
+        "distanceInMeters": null
+      },
+      "minimumFee": null,
+      "name": "ARRESTIER",
+      "firstName": "Bruno",
+      "title": "Dr",
+      "gender": "male",
+      "onlineBooking": {
+        "agendaIds": [
+          99999
+        ],
+        "telehealth": true,
+        "topSpecialities": [],
+        "bookableOrganizationSpecialities": []
+      },
+      "organizationStatus": null,
+      "type": "INDIVIDUAL_PRACTITIONER",
+      "administrativeArea": [],
+      "paymentMeans": [
+        "cash",
+        "check",
+        "credit_card"
+      ],
+      "references": {
+        "legacyId": "profile-65320;practice-36842;medecin-generaliste",
+        "id": 65320,
+        "type": "public_profile",
+        "practiceId": 36842
+      },
+      "regulationSector": "contracted_1",
+      "services": [
+        "profile",
+        "onlineBooking"
+      ],
+      "speciality": {
+        "name": "Médecin généraliste",
+        "slug": "medecin-generaliste"
+      },
+      "matchedVisitMotive": {
+        "visitMotiveId": 592808,
+        "name": "Urgence",
+        "agendaIds": [
+          99999
+        ],
+        "fee": null,
+        "insuranceSector": {
+          "type": null,
+          "split": false
+        },
+        "allowNewPatients": false
+      }
+    },
+    {
+      "cloudinaryPublicId": "wh7jtxcmvt1hsykre7k0",
+      "exactMatch": false,
+      "id": "profile-65363;practice-36876;medecin-generaliste",
+      "languages": [],
+      "link": "/medecin-generaliste/sainte-adresse/benoit-joumel?pid=practice-36876",
+      "location": {
+        "address": "5 Place Hyacinthe Candon",
+        "city": "Sainte-Adresse",
+        "country": "fr",
+        "lat": 49.512245,
+        "lng": 0.08407360000001063,
+        "zipcode": "76310",
+        "distanceInMeters": null
+      },
+      "minimumFee": null,
+      "name": "JOUMEL",
+      "firstName": "Benoit",
+      "title": "Dr",
+      "gender": "male",
+      "onlineBooking": {
+        "agendaIds": [
+          100041
+        ],
+        "telehealth": false,
+        "topSpecialities": [],
+        "bookableOrganizationSpecialities": []
+      },
+      "organizationStatus": null,
+      "type": "INDIVIDUAL_PRACTITIONER",
+      "administrativeArea": [],
+      "paymentMeans": [
+        "cash",
+        "check",
+        "credit_card"
+      ],
+      "references": {
+        "legacyId": "profile-65363;practice-36876;medecin-generaliste",
+        "id": 65363,
+        "type": "public_profile",
+        "practiceId": 36876
+      },
+      "regulationSector": "contracted_1",
+      "services": [
+        "profile",
+        "onlineBooking"
+      ],
+      "speciality": {
+        "name": "Médecin généraliste",
+        "slug": "medecin-generaliste"
+      },
+      "matchedVisitMotive": {
+        "visitMotiveId": 593191,
+        "name": "Consultation de médecine générale",
+        "agendaIds": [
+          100041
+        ],
+        "fee": null,
+        "insuranceSector": {
+          "type": null,
+          "split": false
+        },
+        "allowNewPatients": false
+      }
+    },
+    {
+      "cloudinaryPublicId": "bfajbbayx6y4kbvyzrsw",
+      "exactMatch": false,
+      "id": "profile-65420;practice-36928;medecin-generaliste",
+      "languages": [],
+      "link": "/medecin-generaliste/bobigny/nadera-amimer?pid=practice-36928",
+      "location": {
+        "address": "31 Rue Alcide Vellard",
+        "city": "Bobigny",
+        "country": "fr",
+        "lat": 48.9082452,
+        "lng": 2.442672300000027,
+        "zipcode": "93000",
+        "distanceInMeters": null
+      },
+      "minimumFee": null,
+      "name": "AMIMER",
+      "firstName": "NADERA",
+      "title": "Dr",
+      "gender": "female",
+      "onlineBooking": null,
+      "organizationStatus": null,
+      "type": "INDIVIDUAL_PRACTITIONER",
+      "administrativeArea": [],
+      "paymentMeans": [
+        "cash",
+        "check",
+        "credit_card"
+      ],
+      "references": {
+        "legacyId": "profile-65420;practice-36928;medecin-generaliste",
+        "id": 65420,
+        "type": "public_profile",
+        "practiceId": 36928
+      },
+      "regulationSector": "contracted_1",
+      "services": [
+        "profile"
+      ],
+      "speciality": {
+        "name": "Médecin généraliste",
+        "slug": "medecin-generaliste"
+      },
+      "matchedVisitMotive": null
+    },
+    {
+      "cloudinaryPublicId": "wlvs96yxo1yoeerfcazy",
+      "exactMatch": false,
+      "id": "profile-65432;practice-36934;medecin-generaliste",
+      "languages": [
+        "fr"
+      ],
+      "link": "/medecin-generaliste/bordeaux/carole-bailly-lavaud?pid=practice-36934",
+      "location": {
+        "address": "235 Rue d'Ornano",
+        "city": "Bordeaux",
+        "country": "fr",
+        "lat": 44.8325299,
+        "lng": -0.5952267999999776,
+        "zipcode": "33000",
+        "distanceInMeters": null
+      },
+      "minimumFee": null,
+      "name": "BAILLY-LAVAUD",
+      "firstName": "Carole",
+      "title": "Dr",
+      "gender": "female",
+      "onlineBooking": {
+        "agendaIds": [
+          100117
+        ],
+        "telehealth": true,
+        "topSpecialities": [],
+        "bookableOrganizationSpecialities": []
+      },
+      "organizationStatus": null,
+      "type": "INDIVIDUAL_PRACTITIONER",
+      "administrativeArea": [],
+      "paymentMeans": [
+        "cash",
+        "check",
+        "credit_card"
+      ],
+      "references": {
+        "legacyId": "profile-65432;practice-36934;medecin-generaliste",
+        "id": 65432,
+        "type": "public_profile",
+        "practiceId": 36934
+      },
+      "regulationSector": "contracted_1",
+      "services": [
+        "profile",
+        "onlineBooking"
+      ],
+      "speciality": {
+        "name": "Médecin généraliste",
+        "slug": "medecin-generaliste"
+      },
+      "matchedVisitMotive": {
+        "visitMotiveId": 593555,
+        "name": "Consultation de pédiatrie",
+        "agendaIds": [
+          100117
+        ],
+        "fee": null,
+        "insuranceSector": {
+          "type": null,
+          "split": false
+        },
+        "allowNewPatients": true
+      }
+    },
+    {
+      "cloudinaryPublicId": "pe2eqb7ify47lim03wcc",
+      "exactMatch": false,
+      "id": "profile-65434;practice-36934;medecin-generaliste",
+      "languages": [
+        "fr"
+      ],
+      "link": "/medecin-generaliste/bordeaux/sylvie-escalettes-darhan?pid=practice-36934",
+      "location": {
+        "address": "235 Rue d'Ornano",
+        "city": "Bordeaux",
+        "country": "fr",
+        "lat": 44.8325299,
+        "lng": -0.5952267999999776,
+        "zipcode": "33000",
+        "distanceInMeters": null
+      },
+      "minimumFee": null,
+      "name": "ESCALETTES-DARHAN",
+      "firstName": "Sylvie",
+      "title": "Dr",
+      "gender": "female",
+      "onlineBooking": {
+        "agendaIds": [
+          100119
+        ],
+        "telehealth": true,
+        "topSpecialities": [],
+        "bookableOrganizationSpecialities": []
+      },
+      "organizationStatus": null,
+      "type": "INDIVIDUAL_PRACTITIONER",
+      "administrativeArea": [],
+      "paymentMeans": [
+        "cash",
+        "check",
+        "credit_card"
+      ],
+      "references": {
+        "legacyId": "profile-65434;practice-36934;medecin-generaliste",
+        "id": 65434,
+        "type": "public_profile",
+        "practiceId": 36934
+      },
+      "regulationSector": "contracted_1",
+      "services": [
+        "profile",
+        "onlineBooking"
+      ],
+      "speciality": {
+        "name": "Médecin généraliste",
+        "slug": "medecin-generaliste"
+      },
+      "matchedVisitMotive": {
+        "visitMotiveId": 593555,
+        "name": "Consultation de pédiatrie",
+        "agendaIds": [
+          100119
+        ],
+        "fee": null,
+        "insuranceSector": {
+          "type": null,
+          "split": false
+        },
+        "allowNewPatients": true
+      }
+    }
+  ]
+}

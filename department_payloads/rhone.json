@@ -1,0 +1,35 @@
+{
+  "keyword": "medecin-generaliste",
+  "location": {
+    "place": {
+      "id": 15230,
+      "placeId": "ChIJcf_obOGN9EcR0Cm55CqrCAM",
+      "name": "Rhône",
+      "nameWithPronoun": "en Rhône",
+      "slug": "rhone",
+      "country": "fr",
+      "viewport": {
+        "northeast": {
+          "lat": 46.306502,
+          "lng": 5.160109
+        },
+        "southwest": {
+          "lat": 45.45413,
+          "lng": 4.243647
+        }
+      },
+      "type": "administrativeArea",
+      "zipcodes": [
+        "69"
+      ],
+      "gpsPoint": {
+        "lat": 45.7351456,
+        "lng": 4.6108043
+      },
+      "locality": "",
+      "streetName": null,
+      "streetNumber": null
+    }
+  },
+  "filters": {}
+}
