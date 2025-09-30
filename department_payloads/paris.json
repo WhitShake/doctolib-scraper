@@ -2,31 +2,62 @@
   "keyword": "medecin-generaliste",
   "location": {
     "place": {
-      "id": 15297,
-      "placeId": "ChIJ6WS-4x1Yi0cRgCW55CqrCAM",
-      "name": "Ain",
-      "nameWithPronoun": "en Ain",
-      "slug": "ain",
+      "id": 6901,
+      "placeId": "ChIJD7fiBh9u5kcRYJSMaMOCCwQ",
+      "name": "Paris",
+      "nameWithPronoun": "à Paris",
+      "slug": "paris",
       "country": "fr",
       "viewport": {
         "northeast": {
-          "lat": 46.519953,
-          "lng": 6.1701981
+          "lat": 48.9021476292798,
+          "lng": 2.469851110444433
         },
         "southwest": {
-          "lat": 45.611093,
-          "lng": 4.7280671
+          "lat": 48.81556220872687,
+          "lng": 2.224217068042387
         }
       },
-      "type": "administrativeArea",
+      "type": "locality",
       "zipcodes": [
-        "01"
+        "75000",
+        "75004",
+        "75001",
+        "75018",
+        "75114",
+        "75012",
+        "75117",
+        "75016",
+        "75005",
+        "75017",
+        "75007",
+        "75015",
+        "75116",
+        "75645",
+        "75115",
+        "75475",
+        "75651",
+        "75003",
+        "75014",
+        "75010",
+        "75002",
+        "75009",
+        "75020",
+        "75019",
+        "75743",
+        "75571",
+        "75008",
+        "75908",
+        "75013",
+        "75674",
+        "75011",
+        "75006"
       ],
       "gpsPoint": {
-        "lat": 46.2475706,
-        "lng": 5.1307681
+        "lat": 48.8575475,
+        "lng": 2.3513765
       },
-      "locality": "",
+      "locality": "Paris",
       "streetName": null,
       "streetNumber": null
     }

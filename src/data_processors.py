@@ -4,7 +4,7 @@ Utility functions for processing and transforming Doctolib API data
 """
 import json
 from typing import Dict, Any
-from .models import Doctor
+from models import Doctor
 
 
 def extract_doctor_data(doctor_json, department_id):
@@ -12,6 +12,14 @@ def extract_doctor_data(doctor_json, department_id):
     
     # Determine if this is an individual or organization
     is_organization = doctor_json.get('firstName') is None and doctor_json.get('name') is not None
+
+    # Handle null values
+    online_booking = doctor_json.get('onlineBooking') or {}
+    matched_visit_motive = doctor_json.get('matchedVisitMotive') or {}
+
+    # Extract city information and get or create city ID
+    city_name = doctor_json['location']['city']
+    postal_code = doctor_json['location']['zipcode']
     
     return {
         'doctolib_id': doctor_json['id'],
@@ -32,8 +40,8 @@ def extract_doctor_data(doctor_json, department_id):
         
         # Location
         'address': doctor_json['location']['address'],
-        'city': doctor_json['location']['city'],
-        'postal_code': doctor_json['location']['zipcode'],
+        'city': city_name,
+        'postal_code': postal_code,
         'latitude': doctor_json['location']['lat'],
         'longitude': doctor_json['location']['lng'],
         
@@ -44,7 +52,7 @@ def extract_doctor_data(doctor_json, department_id):
         
         # Online services
         'offers_online_booking': bool(doctor_json.get('onlineBooking')),
-        'offers_telehealth': doctor_json.get('onlineBooking', {}).get('telehealth', False),
+        'offers_telehealth': online_booking.get('telehealth', False),
         'online_booking_details': doctor_json.get('onlineBooking'),
         
         # Various JSON fields
@@ -54,10 +62,10 @@ def extract_doctor_data(doctor_json, department_id):
         'administrative_areas': doctor_json.get('administrativeArea', []),
         
         # Visit motive
-        'visit_motive_id': doctor_json.get('matchedVisitMotive', {}).get('visitMotiveId'),
-        'visit_motive_name': doctor_json.get('matchedVisitMotive', {}).get('name'),
-        'visit_motive_agenda_ids': doctor_json.get('matchedVisitMotive', {}).get('agendaIds'),
-        'visit_motive_insurance_sector': doctor_json.get('matchedVisitMotive', {}).get('insuranceSector'),
+        'visit_motive_id': matched_visit_motive.get('visitMotiveId'),
+        'visit_motive_name': matched_visit_motive.get('name'),
+        'visit_motive_agenda_ids': matched_visit_motive.get('agendaIds'),
+        'visit_motive_insurance_sector': matched_visit_motive.get('insuranceSector'),
         
         # Clinic specific
         'organization_status': doctor_json.get('organizationStatus'),

@@ -69,26 +69,31 @@ class DepartmentLoader:
 
         loaded_count = 0
         updated_count = 0
+        error_count = 0
 
         # Process each file
         for json_file in json_files:
             # Build full path: "department_payloads/paris.json"
             file_path = os.path.join(directory_path, json_file)
+            logger.info(f"Processing file: {json_file}")
             # Load and parse the JSON into a department object
             department = self.load_department_from_json(file_path)
 
-            # Check if department already exists in db
-            # If load_department_from_json() returns a dict
-            if department:
-                # Returns the first matching doctolib ID from the db or None
-                # query(Department) - starts a query for Department objects
-                existing = self.db.query(Department).filter(
-                    Department.doctolib_id == department.doctolib_id
-                ).first()
+            if not department:
+                error_count += 1
+                continue
 
+            # Returns the first matching doctolib ID from the db or None
+            # query(Department) - starts a query for Department objects
+            existing = self.db.query(Department).filter(
+                Department.doctolib_id == department.doctolib_id
+            ).first()
+
+            try:
                 # If there was a match
                 if existing:
                     # Update fields we want to keep current
+                    logger.info(f"Updating department: {department.name} (ID: {department.doctolib_id})")
                     existing.name = department.name
                     existing.place_id = department.place_id
                     existing.type = department.type
@@ -109,16 +114,23 @@ class DepartmentLoader:
                     # Update timestamp to show when we last refreshed this department
                     existing.last_scraped = datetime.now(timezone.utc)
                     updated_count += 1
-                    logger.info(f"Updated department: {department.name}")
+                    # logger.info(f"Updated department: {department.name}")
 
                 else:
                     # Add new record
-                    logger.info(f"Adding department: {department.name}")
+                    logger.info(f"Adding department: {department.name} (ID: {department.doctolib_id})")
                     self.db.add(department)
                     loaded_count += 1
 
-        self.db.commit()
-        logger.info(f"Successfully loaded {loaded_count} new departments and updated {updated_count} existing ones")
+                # Commit each department individually to avoid batch conflicts
+                self.db.commit()
+
+            except Exception as e:
+                logger.error(f"Error processing department {department.name} from {json_file}: {e}")
+                self.db.rollback()
+                error_count += 1
+
+        logger.info(f"Department loading complete: {loaded_count} new, {updated_count} updated, {error_count} errors")
 
     
     def get_department_by_name(self, name: str) -> Department:

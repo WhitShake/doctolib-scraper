@@ -73,7 +73,7 @@ class Doctor(Base):
     minimum_fee = Column(Float, nullable=True)
     
     # Foreign keys
-    city_id = Column(Integer, ForeignKey('cities.id'), nullable=True)
+    # city_id = Column(Integer, ForeignKey('cities.id'), nullable=True)
     department_id = Column(Integer, ForeignKey('departments.id'))
 
     # Timestamps - use timezone-aware datetimes
@@ -83,7 +83,7 @@ class Doctor(Base):
     last_seen = Column(DateTime, default=lambda: datetime.now(timezone.utc))
     
     # Relationships
-    city = relationship("City", back_populates="doctors")
+    # city = relationship("City", back_populates="doctors")
     department = relationship("Department", back_populates="doctors")
 
 
@@ -113,33 +113,32 @@ class Department(Base):
     # Zipcodes (store as JSON array)
     zipcodes = Column(JSON)
 
-    # Timestamps
     # Timestamps - use timezone-aware datetimes
     created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
     last_scraped = Column(DateTime, nullable=True)
     last_updated = Column(DateTime, default=lambda: datetime.now(timezone.utc), onupdate=lambda: datetime.now(timezone.utc))
 
     # Relationships
-    cities = relationship("City", back_populates="department")
+    # cities = relationship("City", back_populates="department")
     doctors = relationship("Doctor", back_populates="department")
 
 
 
-class City(Base):
-    __tablename__ = "cities"
+# class City(Base):
+#     __tablename__ = "cities"
 
-    id = Column(Integer, primary_key=True, index=True)
-    name = Column(String, index=True)
-    postal_code = Column(String, index=True)
-    latitude = Column(Float(10, 7))
-    longitude = Column(Float(10, 7))
+#     id = Column(Integer, primary_key=True, index=True)
+#     name = Column(String, index=True)
+#     postal_code = Column(String, index=True)
+#     latitude = Column(Float(10, 7))
+#     longitude = Column(Float(10, 7))
     
-    # Foreign key
-    department_id = Column(Integer, ForeignKey('departments.id'))
+#     # Foreign key
+#     department_id = Column(Integer, ForeignKey('departments.id'))
     
-    # Timestamps
-    created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
+#     # Timestamps
+#     created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
     
-    # Relationships
-    department = relationship("Department", back_populates="cities")
-    doctors = relationship("Doctor", back_populates="city")
+#     # Relationships
+#     department = relationship("Department", back_populates="cities")
+#     doctors = relationship("Doctor", back_populates="city")
