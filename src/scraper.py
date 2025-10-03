@@ -9,7 +9,7 @@ from datetime import datetime, timezone
 from sqlalchemy.orm import Session
 
 from models import Doctor, Department
-from data_processors import extract_doctor_data, create_doctor_from_json
+from data_processors import extract_doctor_data, validate_doctor_data
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -92,6 +92,8 @@ class DoctolibScraper:
     #         logger.error(f"Session setup failed: {e}")
     #         return False
 
+    # Creates the stored payload files for each department
+    # Params: specialty=str "medecine generaliste", department=Department object - What is Dict doing here?
     def create_search_payload(self, specialty: str, department: Department) -> Dict:
         """Create search payload for a specific department"""
         payload = {
@@ -122,6 +124,7 @@ class DoctolibScraper:
             "filters": {}
         }
         print("DEBUG - Payload types:")
+        # Work through this
         for key, value in payload['location']['place'].items():
             if hasattr(value, '__class__'):
                 print(f"  {key}: {type(value)}")
@@ -132,13 +135,16 @@ class DoctolibScraper:
     def search_doctors_in_department(self, specialty: str, department: Department, page: int = 0) -> Optional[Dict]:
         """Search for doctors in a specific department"""
 
+        # Creates payload for the specified department
         payload = self.create_search_payload(specialty, department)
 
         try:
             logger.debug(f"Sending request to Doctolib API for {department.name}, page {page}")
 
+            # POST request to search endpoint
             response = self.session.post(
                 f'{self.base_url}/phs_proxy/raw?page={page}',
+                # What is this doing? Is it empty or is this the full response visible in Network tab?
                 json=payload,
                 timeout=30
             )
@@ -168,15 +174,30 @@ class DoctolibScraper:
 
 
     def save_doctor_to_db(self, doctor_dict: Dict, db: Session):
-        """Save parsed doctor data to database using your data structure"""
+        """Save parsed doctor data to database using data structure"""
 
         try:
-            #Remove any 'id' fiels that might conflict with primary key
+            #Remove any 'id' fields that might conflict with primary key
+            # Dig more into this
             if 'id' in doctor_dict:
                 logger.warning(f"Removing 'id' field to avoid primary key conflict: {doctor_dict['id']}")
                 del doctor_dict['id']
+            
+            # Ensure required fields have values - Review this
+            required_fields = ['doctolib_id', 'specialty', 'address', 'city']
+            for field in required_fields:
+                if not doctor_dict.get(field):
+                    logger.warning(f"Missing required field {field} for doctor {doctor_dict.get('doctolib_id', 'unknown')}")
+                    # Set default values for critical fields
+                    if field == 'doctolib_id':
+                        doctor_dict['doctolib_id'] = f"unknown-{datetime.now().strftime('%Y%m%d%H%M%S')}"
+                    elif field == 'specialty':
+                        doctor_dict['specialty'] = 'Médecin généraliste'
+                    elif field in ['address', 'city']:
+                        doctor_dict[field] = 'Non spécifié'
 
             # Check if doctor already exists
+            # Why are we exiting if the doc doesn't exist? Does this exit the conditional or the function?
             doctolib_id = doctor_dict.get('doctolib_id')
             if not doctolib_id:
                 logger.error("No doctolib_id found in doctor_dict")
@@ -197,6 +218,7 @@ class DoctolibScraper:
 
             else:
                 # Create new record - use direct Doctor creation
+                # What does '**' do? 
                 doctor = Doctor(**doctor_dict)
                 # Create new record
                 # doctor = create_doctor_from_json(doctor_dict, doctor_dict['department_id'])
@@ -216,21 +238,24 @@ class DoctolibScraper:
             return False
 
 
-
+    # Should this be above save_doc_to_db?
     def scrape_department(self, specialty: str, department: Department, db: Session, max_pages: int = 5):
 
         """Scrape all doctors for a specialty in a specific department"""
 
         logger.info(f"Scraping {specialty} in {department.name} (max {max_pages} pages)")
 
+        # For every page of search results
         for page in range(max_pages):
             logger.info(f"Page {page + 1} for {department.name}...")
 
+            # Creates the payload object of the Department (not doctor)
             data = self.search_doctors_in_department(specialty, department, page)
             if not data:
                 logger.warning(f"No data received for page {page}, stopping")
                 break
 
+            # Access the list value assigned to key 'healthcareProviders' and save as 'doctors'. 'doctors' is a list of dicts.
             doctors = data.get('healthcareProviders', [])
             if not doctors:
                 logger.info("No more doctors found, completed department")
@@ -238,8 +263,11 @@ class DoctolibScraper:
 
             logger.info(f"Found {len(doctors)} doctors on page {page + 1}")
 
+            # Iterate through the list of doctors
             for doctor_data in doctors:
+                # Passes each dict element (single doctor's data) in doctors list to processor
                 parsed_data = extract_doctor_data(doctor_data, department.id)
+                # Adds processed doctor data to db
                 self.save_doctor_to_db(parsed_data, db)
 
             # Rate limiting for politeness
@@ -249,7 +277,7 @@ class DoctolibScraper:
 
 
 
-    # Add this method to scraper.py
+    # Still needed?
     def search_doctors_alternative(self, specialty: str, department: Department, page: int = 0):
         """Alternative search method using different endpoint"""
         params = {
@@ -271,7 +299,7 @@ class DoctolibScraper:
         return None
 
 
-
+    # Still needed?
     # In src/scraper.py - add this method to the DoctolibScraper class
     def test_with_sample_data(self, db: Session):
         """Test our data processing with sample API response"""
@@ -295,6 +323,10 @@ class DoctolibScraper:
 
                     # Use department_id=1 for testing (assuming you have at least one department)
                     parsed_data = extract_doctor_data(doctor_data, department_id=1)
+                    if not validate_doctor_data(parsed_data):
+                        logger.error(f"Skipping invalid doctor data: {doctor_data.get('id', 'unknown')}")
+                        continue
+
                     logger.debug(f"Extracted data keys: {list(parsed_data.keys())}")
 
                     if self.save_doctor_to_db(parsed_data, db):
@@ -320,7 +352,7 @@ class DoctolibScraper:
             return False
 
 
-
+    # Still needed?
     # Add this temporary test method
     def test_data_extraction_only(self):
         """Test just the data extraction without saving to DB"""

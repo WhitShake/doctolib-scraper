@@ -2,7 +2,6 @@
 import logging
 import os
 import sys
-# from sqlalchemy.orm import Session
 
 sys.path.append(os.path.dirname(__file__))
     
