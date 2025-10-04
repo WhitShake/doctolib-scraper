@@ -10,12 +10,18 @@ import json
 import logging
 from typing import Dict, Optional, List
 from sqlalchemy.orm import Session
+import sys
 
 from models import Doctor, Department
 from data_processors import extract_doctor_data
-from scraper import DoctolibScraper
+# from scraper import DoctolibScraper
 
-import sys
+try:
+    from base_scraper import BaseDoctolibScraper
+except ImportError:
+    # Fallback for direct execution
+    from src.base_scraper import BaseDoctolibScraper
+
 print("Script starting...")
 print(f"Python path: {sys.executable}")
 
@@ -26,17 +32,18 @@ logger = logging.getLogger(__name__)
 # =============================================================================
 print("🚀 selenium_scraper.py is loading...")
 
-class SeleniumDoctolibScraper:
+class SeleniumDoctolibScraper(BaseDoctolibScraper):
     def __init__(self, headless: bool = True):
         """
         Initialize selenium WebDriver
         Args:
             headless: Run browser in background (True) or visible (False)
         """
+        super().__init__() # Call parent constructor if needed - Why would I need that?
         self.headless = headless
         self.driver = None
         self.setup_driver()
-        self.legacy_scraper = DoctolibScraper() # Reuse existing scraper
+        # self.legacy_scraper = DoctolibScraper() # Reuse existing scraper
 
     def setup_driver(self):
         """Setup Chrome WebDriver with realistic browser settings"""
@@ -249,7 +256,7 @@ class SeleniumDoctolibScraper:
 
 
 
-    def search_doctors(self, specialty: str, department: Department, max_pages: int = 2) -> List[Dict]:
+    def search_doctors(self, specialty: str, department, max_pages: int = 2) -> List[Dict]:
         """
         Search for doctors using Slenium to mimic real user behavior
         
@@ -269,10 +276,21 @@ class SeleniumDoctolibScraper:
                 EC.presence_of_element_located((By.TAG_NAME, "body"))
             )
 
-            # TODO: Figure out the exact search form interactions
-            # This is a placeholder - will inspect page structure
+            # Handle cookie popup
+            self.handle_cookie_popup()
 
-            # Attempt to intercept API calls
+            # Enter search terms and implement search
+            self.enter_specialty(specialty)
+            self.enter_location(department.name) # Department name as location
+            self.click_search()
+
+            # Wait for search to complete
+            WebDriverWait(self.driver, 10).until(
+                lambda driver: "specialty" in driver.current_url
+            )
+
+            # TODO: Extract doctor data from the results page
+            # Currently intercepting API calls instead
             doctors_data = self.intercept_api_calls(specialty, department, max_pages)
 
         except Exception as e:
@@ -285,47 +303,119 @@ class SeleniumDoctolibScraper:
     def intercept_api_calls(self, specialty: str, department: Department, max_pages: int) -> List[Dict]:
         """
         Intercept network calls to get the raw API data
-        May be easier than parsing HTML
         """
         doctors_data = []
 
         try:
-            # Anable network monitoring
+            # Enable network monitoring before triggering search
+            logger.info("Setting up network interception...")
+
+            # Clear any previous intercepted data
+            self.driver.execture_script("window.interceptData = [];")
+
+            # Monitor fetch requests
             self.driver.execute_script("""
-                window.interceptedData = [];
                 const originalFetch = window.fetch;
                 window.fetch = function(...args) {
                     return originalFetch.apply(this, args).then(response => {
-                        if (args[0].includes('/phs_proxy/raw')) {
-                            response.clone().json().then(data => {
-                                window.interceptedData.push(data);
-                            });
+                        // Clone the response to read it without consuming
+                        const clonedResponse = response.clone();
+
+                        // Check if this is a doctor search API call
+                        if (args[0] && args[0].includes('/search_results') ||
+                                        args[0].includes('/search/') ||
+                                        args[0].includes('/api/'))) {
+                            clonedResponse.json().then(data => {
+                                console.log('Intercepted API call:', args[0], data);
+                                if(!window.interceptedData) window.interceptedData = [];
+                                window.interceptedData.push({
+                                    url: args[0],
+                                    data: data,
+                                    timestamp: new Date().toISOString()
+                                });
+                            }).catch(e => {/* Not JSON */});
                         }
                         return response;
                     });
                 };
             """)
 
-            # Now trigger the search - will need to figure out the exact UI interactions
-            # This is tricky, required manual testing
+            # Also monitor XMLHttpRequest
+            self.driver.execture_script("""
+                const originalXHR = window.XMLHttpRequest;
+                window.XMLHttpRequest = function() {
+                    const xhr = new originalXHR();
+                    const originalOpen = xhr.open;
+                    const originalSend = xhr.send;
+                    
+                    xhr.open = function(method, url) {
+                        this._url = url;
+                        return originalOpen.apply(this, arguments);
+                    };
+                    
+                    xhr.send = function(data) {
+                        this.addEventListener('load', function() {
+                            if (this._url && (this._url.includes('/search_results') ||
+                                            this._url.includes('/search/') ||
+                                            this._url.includes('/api/'))) {
+                                try {
+                                    const responseData = JSON.parse(this.responseText);
+                                    console.log('Intercepted XHR call:', this._url, responseData);
+                    
+                                    if (!window.interceptedData) window.interceptedData = [];
+                                    window.interceptedData.push({
+                                        url: this._url,
+                                        data: responseData,
+                                        timestamp: new Date().toISOString()
+                                    });
+                                } catch(e) {/* Not JSON */}
+                            }
+                        });
+                        return originalSend.apply(this, arguments);
+                    };
+                    
+                    return xhr;
+                };
+            """)
+            
+            logger.info("Network interception setup complete")
 
-            # Wait for data to be intercepted
+            # The search should already be triggered by search_doctors method
+            # Wait for results to load and API calls to be made
+            logger.info("Waiting for API calls to be intercepted...")
             time.sleep(5)
 
+            # Try to scroll to trigger pagination/loading more results
+            self.driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+            time.sleep(2)
+
             # Get intercepted data
-            intercepted_data = self.driver.execture_script("return window.interceptedData;")
+            intercepted_data = self.driver.execute_script("return window.interceptedData || [];")
+
             logger.info(f"Intercepted {len(intercepted_data)} API calls")
 
-            # Process the data
-            for data in intercepted_data:
-                if 'healthcareProviders' in data:
-                    doctors_data.extend(data['healthcareProviders'])
+            # Process intercepted data
+            for i, call in enumerate(intercepted_data):
+                logger.info(f"   Call {i+1}: {call.get('url', 'Unknown URL')}")
+                data = call.get('data', {})
 
+                # Look for dactor data in various possible structures
+                if 'data' in data and 'doctors' in data['data']:
+                    doctors_data.extend(data['data']['doctors'])
+                    logger.info(f"   Found {len(data['data']['doctors'])} doctors")
+                elif 'doctors' in data:
+                    doctors_data.extend(data['doctors'])
+                    logger.info(f"   Found {len(data['professionals'])} professionals")
+                elif 'items' in data:
+                    doctors_data.extend(data['items'])
+                    logger.info(f"   Found {len(data['items'])} items")
+
+            logger.info(f"Total doctors extracted: {len(doctors_data)}")
         except Exception as e:
             logger.error(f"API interception failed: {e}")
 
         return doctors_data
-            
+
 
 
     def save_doctor_to_db(self, doctor_dict: Dict, db: Session):
@@ -387,7 +477,8 @@ def test_selenium_setup():
 
 
 def test_search_functionality():
-    """Test that we can perform a basic search"""
+    """Legacy test - keeping for reference. Replaced by test_integration()"""
+    print("This is a legacy test. Use test_integration() instead.")
     print("🧪 Testing search functionality...")
     scraper = None
     
@@ -442,8 +533,100 @@ def test_search_functionality():
             scraper.driver.quit()
             print("✅ WebDriver closed")
 
-# Update the main block to test search instead of just setup:
+
+
+def test_integration():
+    """Test Selenium scraper with actual database integration"""
+    from database import SessionLocal
+    from models import Department
+    from data_processors import extract_doctor_data
+
+    print("Testing Selenium + Database integration...")
+    scraper = None
+    db = SessionLocal()
+
+    try:
+        # Create instance of S. scraper, browser will not run in background
+        scraper = SeleniumDoctolibScraper(headless=False)
+
+        # Get a test department
+        test_department = db.query(Department).filter(Department.name.ilike("%Ain%")).first()
+
+        if not test_department:
+            print("No Ain department found in database")
+            return False
+        
+        print(f"Testing search in: {test_department.name}")
+
+        # Use the search_doctors method (inherited interface)
+        doctors_data = scraper.search_doctors(
+            specialty="médecin généraliste",
+            department=test_department,
+            max_pages=1
+        )
+
+        print(f"Found {len(doctors_data)} raw doctor records via Selenium")
+
+        # TODO: Process and save docs to db via data_processors.extract_doctor_data
+        saved_count = 0
+        for doctor_data in doctors_data:
+            try:
+                # Extract structured data using existing processor
+                processed_doctor = extract_doctor_data(doctor_data)
+
+                if processed_doctor:
+                    # Save to db using inherited method
+                    success = scraper.save_doctor_to_db(processed_doctor, db)
+                    if success:
+                        saved_count += 1
+                    else:
+                        print(f"Failed to save doctor: {processed_doctor.get('last_name', 'Unknown')}")
+
+                else:
+                    print("failed to process doctor data")
+
+            except Exception as e:
+                print(f"Error processing doctor: {e}")
+                continue
+        
+        print(f"Successfully saved {saved_count}/{len(doctors_data)} doctors to database")
+
+        return saved_count > 0
+    
+    except Exception as e:
+        print(f"Integrations test failed: {e}")
+        return False
+    
+    finally:
+        if scraper and scraper.driver:
+            scraper.driver.quit()
+        db.close()
+
+
+# if __name__ == "__main__":
+#     print("🚀 Testing Selenium + Database integration...")
+#     success = test_integration()
+#     print(f"🎉 Test completed: {'SUCCESS' if success else 'FAILED'}")
+
+def test_inheritance():
+    """Quick test to verify inheritance is working"""
+    try:
+        scraper = SeleniumDoctolibScraper(headless=False)
+        print("✅ Selenium scraper created successfully")
+        print(f"✅ Has save_doctor_to_db method: {hasattr(scraper, 'save_doctor_to_db')}")
+        print(f"✅ Has search_doctors method: {hasattr(scraper, 'search_doctors')}")
+        scraper.driver.quit()
+        return True
+    except Exception as e:
+        print(f"❌ Inheritance test failed: {e}")
+        return False
+    
+# Update main temporarily to test inheritance first:
 if __name__ == "__main__":
-    print("🚀 Testing search functionality...")
-    success = test_search_functionality()
-    print(f"🎉 Test completed: {'SUCCESS' if success else 'FAILED'}")
+    print("🚀 Testing inheritance structure...")
+    if test_inheritance():
+        print("🎉 Inheritance working! Now testing integration...")
+        success = test_integration()
+        print(f"🎉 Integration test: {'SUCCESS' if success else 'FAILED'}")
+    else:
+        print("❌ Inheritance test failed - fix base class first")
